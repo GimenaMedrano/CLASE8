@@ -1,26 +1,40 @@
-import Pizza.Base.Pizza;
+import Pizza.Base.Especialidades.PizzaCuattroQuesos;
+import Pizza.Base.Especialidades.PizzaEstiloChicago;
+import Pizza.Base.Especialidades.PizzaItaliana;
 import Pizza.Base.Topping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
         public static void main(String[] args) {
+            List<String> ingredientes = new ArrayList<>();
+            ingredientes.add("Mozzarella");
+            ingredientes.add("Pepperoni");
+            ingredientes.add("Jitomate");
+            ingredientes.add("Queso Parmesano");
 
-            Pizza pizza = new Pizza("Pizza Margarita");
+            PizzaEstiloChicago pizzaChicago = new PizzaEstiloChicago("Pizza de Chicago","Mptzalella", ingredientes);
+            pizzaChicago.addTopping(new Topping("cebolla", 8));
+            pizzaChicago.prepare();
+
+            PizzaCuattroQuesos pizza =  new PizzaCuattroQuesos("Cuatroquesos", "Queso Azul");
             pizza.addTopping(new Topping("Tomato", 8));
             pizza.addTopping(new Topping("Mozarella", 7));
             pizza.addTopping(new Topping("Orilla de queso ", 15));
             pizza.prepare();
-//
-//    PizzaItaliana pizzaItaliana = new PizzaItaliana("Pizza Italiana", 12.99, "Salsa de tomate");
-//    pizzaItaliana.addTopping(new Topping("Tomato"));
-//    pizzaItaliana.addTopping(new Topping("Mozarella"));
-//    pizzaItaliana.prepare();
-//    }
-//
-//    PizzaBase pizzaBase = new PizzaBase("Pizza Base", 10.99);
-//    pizzaBase.prepare();
 
-        }
+            System.out.print("\n");
+
+
+            PizzaItaliana pizzaItaliana = new PizzaItaliana("Italiana","salsa" );
+            pizzaItaliana.addTopping(new Topping("Tomato", 8));
+            pizzaItaliana.prepare();
+
+
+
+    }
 
 
 

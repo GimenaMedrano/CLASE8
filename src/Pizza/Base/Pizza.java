@@ -3,8 +3,9 @@ package Pizza.Base;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
-public class Pizza {
+public abstract class Pizza {
     private String name;
     private List<Topping> toppings = new ArrayList<>();
 
@@ -47,7 +48,12 @@ public class Pizza {
         }
 
         return totalPrice;
+
+
     }
+
+
+
 
     public void prepare() {
         System.out.println("Preparando su pizza  " + name);
@@ -59,8 +65,35 @@ public class Pizza {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
 
-        System.out.println("Total price: " + getzzaPizzaPrice());
+        }
+        tamanios();
+
     }
+
+    private void tamanios(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Selecciona el tamanio de tu pizza\n");
+
+        System.out.print("1.Pizza Smal \n 2.Pizza Medium\n 3.Pizza Lange \n");
+        int numero= scanner.nextInt();
+        if (numero == 1) {
+            System.out.println("Su piza es normal small, Total price:" + getzzaPizzaPrice());
+
+        } else if (numero == 2) {
+
+            double data=(0.20* getzzaPizzaPrice())+ getzzaPizzaPrice();
+            System.out.println("Su piza es normal medium, Total price:" + data);
+
+        } else if (numero == 3) {
+            double data=(0.35* getzzaPizzaPrice())+ getzzaPizzaPrice();
+            System.out.println("Su piza es normal large , Total price:" + data);
+        } else {
+            System.out.println("Número ingresado no válido. Por favor, ingrese 1, 2 o 3.");
+        }
+    }
+
+
 }
+
